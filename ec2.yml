@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  MyInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: ami-018d291ca9ffc002f 
+      InstanceType: t2.micro
+      KeyName: harish-california
+      SecurityGroups:
+        - !Ref WebServerSecurityGroup
+  WebServerSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: "Enable HTTP access via port 80 + SSH access"
+      SecurityGroupIngress:
+      - CidrIp: 0.0.0.0/0
+        FromPort: 80
+        IpProtocol: tcp
+        ToPort: 80
+      - CidrIp: 0.0.0.0/0
+        FromPort: 22
+        IpProtocol: tcp
+        ToPort: 22
