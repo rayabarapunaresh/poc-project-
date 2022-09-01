@@ -3,7 +3,7 @@ Resources:
   MyInstance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      ImageId: ami-018d291ca9ffc002f 
+      ImageId: ami-0b89f7b3f054b957e 
       InstanceType: t2.micro
       KeyName: Naresh
       SecurityGroups:
