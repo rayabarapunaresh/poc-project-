@@ -209,7 +209,7 @@ Resources:
      Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
     Source:
      Type: CODEPIPELINE
-     Location: https://git-codecommit.us-west-1.amazonaws.com/v1/repos/janu
+     Location: https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/nareshravs
      BuildSpec: buildspec.yml
 
   Pipeline:
@@ -229,7 +229,7 @@ Resources:
                 Version: '1'
                 Provider: CodeCommit
               Configuration:
-                RepositoryName: janu
+                RepositoryName: nareshravs
                 BranchName: main
               OutputArtifacts:
                 - Name: AppArtifact
@@ -260,10 +260,10 @@ Resources:
               Configuration:
                 ActionMode: 'CREATE_UPDATE'
                 Capabilities: 'CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND'
-                RoleArn: 'arn:aws:iam::882956824445:role/janucodedeploy'
-                StackName: harish-stack3
+                RoleArn: 'arn:aws:iam::882956824445:role/service-role/cwe-role-ap-southeast-1-nareshproject'
+                StackName: nareshravs1
                 TemplatePath: 'BuildOutput::ec2.yml'
               OutputArtifacts: []
               InputArtifacts:
                 - Name: BuildOutput
-              RunOrder: 1     
+              RunOrder: 1 
